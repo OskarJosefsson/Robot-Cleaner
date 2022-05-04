@@ -91,7 +91,7 @@ namespace Robot_Cleaner.Classes.RobotCleaner
 
                 for (int i = 1; i < str.Length; i++)
                 {
-                    newString = Convert.ToString(str[i]);
+                    newString += Convert.ToString(str[i]);
                 }
                 if(int.TryParse(newString, out int result))
                 {

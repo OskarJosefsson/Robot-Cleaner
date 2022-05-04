@@ -31,16 +31,14 @@ namespace Robot_Cleaner.Classes.RobotCleaner
 
                     for (int i = 0; i < vector.Length; i++)
                     {
-                        if (BoundryCheck(Settings.CurrentPosition, Settings.Map))
-                        {
-                            Move(vector.Direction);
-                        }
+                        Point lastPoint = new Point(Settings.CurrentPosition.X,Settings.CurrentPosition.Y);
+                        Vector lastVector = new Vector(vector.Direction,vector.Length);
+                        Move(vector.Direction);
 
-                        else
+                        if (!BoundryCheck(Settings.CurrentPosition, Settings.Map))
                         {
-                            return new CleaningResult($"Out of bounds after ({Settings.CurrentPosition.X},{Settings.CurrentPosition.Y}) while going in the {vector.Direction} direction", visitedPoints);
+                            return new CleaningResult($"Out of bounds after ({lastPoint.X},{lastPoint.Y}) while going in the {lastVector.Direction} direction", visitedPoints);
                         }
-
                     }
                 }
             }
@@ -106,7 +104,7 @@ namespace Robot_Cleaner.Classes.RobotCleaner
 
         private bool BoundryCheck (Point p, Map map)
         {
-            if(p.X == Settings.Map.XMax || p.X == Settings.Map.XMin || p.Y == Settings.Map.YMax || p.Y == Settings.Map.YMin)
+            if(p.X > Settings.Map.XMax || p.X < Settings.Map.XMin || p.Y > Settings.Map.YMax || p.Y < Settings.Map.YMin)
             {
                 return false;
             }
