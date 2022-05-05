@@ -49,10 +49,14 @@ namespace Robot_Cleaner.Classes.RobotCleaner
                 map.XMax = XMin;
                 map.YMin = YMax;
                 map.YMax = YMin;
+
+                return map;
             }
 
-
-            return map;
+            else
+            {
+                return null;
+            }
         }
 
     }

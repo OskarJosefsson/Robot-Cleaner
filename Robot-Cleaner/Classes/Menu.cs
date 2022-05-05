@@ -120,8 +120,6 @@ namespace Robot_Cleaner
 
         public Map MapMenu()
         {
-
-            
             Map map = new Map();
             while (!mapInput)
             {
@@ -154,7 +152,7 @@ namespace Robot_Cleaner
         {
             int xStart = 0;
             int yStart = 0;
-            
+
             while (!startInput)
             {
                 try

@@ -69,8 +69,6 @@ namespace Robot_Cleaner.Classes.RobotCleaner
             {
                 case "N":
                     Settings.CurrentPosition.Y += 1;
-
-
                     break;
 
                 case "S":
