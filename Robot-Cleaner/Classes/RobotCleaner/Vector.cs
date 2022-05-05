@@ -111,7 +111,6 @@ namespace Robot_Cleaner.Classes.RobotCleaner
 
             
         }
-
         private bool CheckFormat(string vector)
         {
             return (Regex.IsMatch(vector, @"^[WENSwens]{1}\d*$"));

@@ -39,6 +39,9 @@ namespace Robot_Cleaner.Classes.RobotCleaner
                         {
                             return new CleaningResult($"Out of bounds after ({lastPoint.X},{lastPoint.Y}) while going in the {lastVector.Direction} direction", visitedPoints);
                         }
+
+                        Point newPoint = new Point(Settings.CurrentPosition.X, Settings.CurrentPosition.Y);
+                        visitedPoints.Add(newPoint);
                     }
                 }
             }
@@ -60,24 +63,19 @@ namespace Robot_Cleaner.Classes.RobotCleaner
 
         private void Move(string vector)
         {
-            Point newPoint;
+            
 
             switch (vector.ToUpper())
             {
                 case "N":
                     Settings.CurrentPosition.Y += 1;
 
-                         newPoint = new Point(Settings.CurrentPosition.X, Settings.CurrentPosition.Y);
-                    visitedPoints.Add(newPoint);
+
                     break;
 
                 case "S":
 
                     Settings.CurrentPosition.Y -= 1;
-
-                    newPoint  = new Point(Settings.CurrentPosition.X, Settings.CurrentPosition.Y);
-                    visitedPoints.Add(newPoint);
-                    
 
                     break;
 
@@ -85,19 +83,12 @@ namespace Robot_Cleaner.Classes.RobotCleaner
 
                        Settings.CurrentPosition.X -= 1;
 
-                       newPoint = new Point(Settings.CurrentPosition.X, Settings.CurrentPosition.Y);
-                       visitedPoints.Add(newPoint);
-                    
-
                     break;
 
                 case "E":
 
                     Settings.CurrentPosition.X += 1;
 
-                     newPoint = new Point(Settings.CurrentPosition.X, Settings.CurrentPosition.Y);
-                     visitedPoints.Add(newPoint);
-                    
                     break;
             }
         }

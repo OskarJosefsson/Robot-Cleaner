@@ -39,10 +39,18 @@ namespace Robot_Cleaner.Classes.RobotCleaner
             Map map = new Map();
             input = input.ReplaceSeveral(new[] { "M" });
             string[] arr = input.Split(',');
-            map.XMin = Convert.ToInt32(arr[0]);
-            map.XMax = Convert.ToInt32(arr[1]);
-            map.YMin = Convert.ToInt32(arr[2]);
-            map.YMax = Convert.ToInt32(arr[3]);
+
+            if(int.TryParse(arr[0],out int XMax) 
+                && int.TryParse(arr[1], out int XMin)
+                && int.TryParse(arr[2], out int YMax) 
+                && int.TryParse(arr[3], out int YMin))
+            {
+                map.XMin = XMax;
+                map.XMax = XMin;
+                map.YMin = YMax;
+                map.YMax = YMin;
+            }
+
 
             return map;
         }
